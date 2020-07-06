@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t6u-rZ-9xd">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mzU-lD-nJ5">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Generate-->
+        <scene sceneID="aiN-ZA-bAQ">
+            <objects>
+                <viewController id="NrS-9S-U3S" customClass="GeneratorViewController" customModule="BarcodeScannerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F8I-TP-4m9"/>
+                        <viewControllerLayoutGuide type="bottom" id="JU2-7T-8nh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QoY-FG-G98">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wys-Bb-6D6">
+                                <rect key="frame" x="24" y="50" width="327" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgc-0H-bBS">
+                                <rect key="frame" x="287" y="109" width="64" height="30"/>
+                                <state key="normal" title="Generate"/>
+                                <connections>
+                                    <action selector="didTouchGenerateButton:" destination="NrS-9S-U3S" eventType="touchUpInside" id="cNj-tM-hph"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hMi-Uw-GFs">
+                                <rect key="frame" x="37.5" y="239" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7i7-Iq-uM9"/>
+                                    <constraint firstAttribute="height" constant="300" id="vUv-kE-Ct0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hMi-Uw-GFs" firstAttribute="top" secondItem="Hgc-0H-bBS" secondAttribute="bottom" constant="100" id="979-CX-8ZS"/>
+                            <constraint firstItem="hMi-Uw-GFs" firstAttribute="centerX" secondItem="QoY-FG-G98" secondAttribute="centerX" id="FAw-tz-Za8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hgc-0H-bBS" secondAttribute="trailing" constant="8" id="Xf8-5y-a6l"/>
+                            <constraint firstItem="wys-Bb-6D6" firstAttribute="leading" secondItem="QoY-FG-G98" secondAttribute="leadingMargin" constant="8" id="oxf-0k-Y8K"/>
+                            <constraint firstItem="wys-Bb-6D6" firstAttribute="top" secondItem="F8I-TP-4m9" secondAttribute="bottom" constant="50" id="tPe-oG-U47"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wys-Bb-6D6" secondAttribute="trailing" constant="8" id="vph-uc-G43"/>
+                            <constraint firstItem="Hgc-0H-bBS" firstAttribute="top" secondItem="wys-Bb-6D6" secondAttribute="bottom" constant="25" id="xyO-8G-GMX"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Generate" id="UCz-yQ-jEE" userLabel="Generate"/>
+                    <connections>
+                        <outlet property="generatedImage" destination="hMi-Uw-GFs" id="Oye-m5-cqJ"/>
+                        <outlet property="textField" destination="wys-Bb-6D6" id="Yzg-9K-zmj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ad-IF-dis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-183.19999999999999" y="-92.203898050974516"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="XJs-2S-qEl">
+            <objects>
+                <tabBarController id="mzU-lD-nJ5" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5jl-ZF-jzk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NrS-9S-U3S" kind="relationship" relationship="viewControllers" id="bA6-aG-nnZ"/>
+                        <segue destination="t6u-rZ-9xd" kind="relationship" relationship="viewControllers" id="anh-SI-Wq3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acj-yK-Lhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1071" y="-412"/>
+        </scene>
+        <!--Scan-->
         <scene sceneID="DQp-Wl-wOu">
             <objects>
                 <viewController id="t6u-rZ-9xd" customClass="ViewController" customModule="BarcodeScannerSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgo-yu-mXB">
-                                <rect key="frame" x="62.5" y="208" width="250" height="250"/>
+                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="EKu-ik-U53"/>
@@ -46,6 +114,7 @@
                             <constraint firstItem="MvI-ai-FZ9" firstAttribute="width" secondItem="Qgo-yu-mXB" secondAttribute="width" id="nlf-sl-j7e"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Scan" id="a1J-vT-Z2M" userLabel="Scan"/>
                     <connections>
                         <outlet property="resultLabel" destination="MvI-ai-FZ9" id="g6K-SC-BGH"/>
                         <outlet property="scanView" destination="Qgo-yu-mXB" id="OWS-DH-SoK"/>
@@ -53,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ik-HT-pJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="268" y="-235"/>
+            <point key="canvasLocation" x="-182" y="-769"/>
         </scene>
     </scenes>
 </document>
